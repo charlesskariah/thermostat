@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_22_170212) do
+ActiveRecord::Schema.define(version: 2019_03_23_134237) do
 
   create_table "readings", force: :cascade do |t|
     t.integer "thermostat_id"
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 2019_03_22_170212) do
     t.float "battery_charge"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["thermostat_id", "battery_charge"], name: "index_readings_on_thermostat_id_and_battery_charge"
+    t.index ["thermostat_id", "humidity"], name: "index_readings_on_thermostat_id_and_humidity"
+    t.index ["thermostat_id", "number"], name: "index_readings_on_thermostat_id_and_number"
+    t.index ["thermostat_id", "temperature"], name: "index_readings_on_thermostat_id_and_temperature"
+    t.index ["thermostat_id"], name: "index_readings_on_thermostat_id", unique: true
   end
 
   create_table "thermostats", force: :cascade do |t|
