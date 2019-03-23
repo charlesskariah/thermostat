@@ -21,7 +21,10 @@ gem 'puma', '~> 3.11'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# custom gems added
 
+gem 'fast_jsonapi'
+gem 'auto_increment'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
