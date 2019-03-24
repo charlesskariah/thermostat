@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_03_23_134237) do
     t.index ["thermostat_id", "humidity"], name: "index_readings_on_thermostat_id_and_humidity"
     t.index ["thermostat_id", "number"], name: "index_readings_on_thermostat_id_and_number"
     t.index ["thermostat_id", "temperature"], name: "index_readings_on_thermostat_id_and_temperature"
-    t.index ["thermostat_id"], name: "index_readings_on_thermostat_id", unique: true
+    t.index ["thermostat_id"], name: "index_readings_on_thermostat_id"
   end
 
   create_table "thermostats", force: :cascade do |t|
