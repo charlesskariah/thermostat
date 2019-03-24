@@ -1,7 +1,7 @@
 class Reading < ApplicationRecord
   belongs_to :thermostat, dependent: :destroy
 
-  validates :number, :temperature, :humidity, :battery_charge, presence: true
+  validates :number, presence: true
   
   after_save :remove_from_redis_store
 
