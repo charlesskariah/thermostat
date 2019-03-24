@@ -24,7 +24,10 @@ gem 'puma', '~> 3.11'
 # custom gems added
 
 gem 'fast_jsonapi'
-gem 'auto_increment'
+gem 'sidekiq'
+gem 'redis'
+gem 'redis-namespace'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
