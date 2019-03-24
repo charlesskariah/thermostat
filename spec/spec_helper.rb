@@ -15,33 +15,24 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 # require database cleaner at the top level
-require 'database_cleaner'
-
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
-  end
-end
+require 'factory_bot_rails'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
-  config.include FactoryBot::Syntax::Methods
-
   # start by truncating all the tables but then use the faster transaction strategy the rest of the time.
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-    DatabaseCleaner.strategy = :transaction
-  end
+  # config.before(:suite) do
+  #   DatabaseCleaner.clean_with(:truncation)
+  #   DatabaseCleaner.strategy = :transaction
+  # end
 
-  # start the transaction strategy as examples are run
-  config.around(:each) do |example|
-    DatabaseCleaner.cleaning do
-      example.run
-    end
-  end
+  # # start the transaction strategy as examples are run
+  # config.around(:each) do |example|
+  #   DatabaseCleaner.cleaning do
+  #     example.run
+  #   end
+  # end
   
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
@@ -119,4 +110,5 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  config.include FactoryBot::Syntax::Methods
 end

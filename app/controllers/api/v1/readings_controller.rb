@@ -10,7 +10,7 @@ module Api
         ReadingWorker.perform_async(key)
         json_response({reading_id: @number}, :created)
       end
-
+      
       def show
         key = @thermostat.id.to_s + ':' + params[:id].to_s
         if $redis.get(key).present?
